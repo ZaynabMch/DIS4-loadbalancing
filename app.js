@@ -17,10 +17,10 @@ if (cluster.isPrimary) {
 } else {
   // Selve HTTP-serveren (hver worker håndterer forbindelser)
   http.createServer((req, res) => {
-    // Til test: vis hvilken worker der svarer
     res.writeHead(200)
     res.end(`hello from worker ${process.pid}\n`)
   }).listen(8000)
+  
 
   console.log(`Worker ${process.pid} started`)
 }
